@@ -13,22 +13,31 @@ class MovieView: UIView {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.backgroundColor = .red
-//        tableView.register(<#T##cellClass: AnyClass?##AnyClass?#>, forCellReuseIdentifier: <#T##String#>)
+        //        tableView.register(<#T##cellClass: AnyClass?##AnyClass?#>, forCellReuseIdentifier: <#T##String#>)
         return tableView
     }()
     
-//MARK: - Initializers
+    //MARK: - Initializers
     
     override init( frame: CGRect) {
         super.init(frame: frame)
-
+        self.addElements()
+        self.setupConstraints()
+        
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-//MARK: - Private Functions
+    //MARK: - Public Funtions
+    
+    public func configTableViewProtocols(delegate:UITableViewDelegate, datasource:UITableViewDataSource){
+        self.tableView.delegate = delegate
+        self.tableView.dataSource = datasource
+    }
+    
+    //MARK: - Private Functions
     
     private func addElements(){
         self.addSubview(self.tableView)
@@ -36,12 +45,12 @@ class MovieView: UIView {
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-        
+            
             self.tableView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
             self.tableView.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor),
             self.tableView.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor),
             self.tableView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor)
-
+            
         ])
     }
 }
