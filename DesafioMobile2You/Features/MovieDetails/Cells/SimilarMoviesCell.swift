@@ -42,6 +42,7 @@ class SimilarMoviesCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.addElements()
         self.setupConstraints()
+        self.selectionStyle = .none
         
     }
     

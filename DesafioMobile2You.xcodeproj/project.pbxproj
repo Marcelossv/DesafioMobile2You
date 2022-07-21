@@ -17,6 +17,8 @@
 		313D9D362889EB7F0091D488 /* SimilarMoviesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313D9D352889EB7F0091D488 /* SimilarMoviesCell.swift */; };
 		313D9D3A2889FF960091D488 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313D9D392889FF960091D488 /* UILabel+Extension.swift */; };
 		313D9D42288A02420091D488 /* CustomFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313D9D41288A02420091D488 /* CustomFont.swift */; };
+		313D9D44288A088E0091D488 /* MovieNameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313D9D43288A088E0091D488 /* MovieNameCell.swift */; };
+		313D9D46288A09610091D488 /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313D9D45288A09610091D488 /* UIButton+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		313D9D3E288A011F0091D488 /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Bold.ttf"; sourceTree = "<group>"; };
 		313D9D3F288A011F0091D488 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
 		313D9D41288A02420091D488 /* CustomFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFont.swift; sourceTree = "<group>"; };
+		313D9D43288A088E0091D488 /* MovieNameCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieNameCell.swift; sourceTree = "<group>"; };
+		313D9D45288A09610091D488 /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				313D9D352889EB7F0091D488 /* SimilarMoviesCell.swift */,
+				313D9D43288A088E0091D488 /* MovieNameCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -143,6 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				313D9D392889FF960091D488 /* UILabel+Extension.swift */,
+				313D9D45288A09610091D488 /* UIButton+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -239,6 +245,8 @@
 			files = (
 				313D9D332889E2140091D488 /* MovieView.swift in Sources */,
 				313D9D162889D9AD0091D488 /* AppDelegate.swift in Sources */,
+				313D9D44288A088E0091D488 /* MovieNameCell.swift in Sources */,
+				313D9D46288A09610091D488 /* UIButton+Extension.swift in Sources */,
 				313D9D362889EB7F0091D488 /* SimilarMoviesCell.swift in Sources */,
 				313D9D3A2889FF960091D488 /* UILabel+Extension.swift in Sources */,
 				313D9D182889D9AD0091D488 /* SceneDelegate.swift in Sources */,

@@ -33,18 +33,33 @@ class MovieViewController: UIViewController {
 extension MovieViewController : UITableViewDelegate , UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return 2
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: SimilarMoviesCell.identifier, for: indexPath) as? SimilarMoviesCell
-        return cell ?? UITableViewCell()
+        
+        switch indexPath.row{
+        case 0:
+            let cell = tableView.dequeueReusableCell(withIdentifier: MovieNameCell.identifier, for: indexPath) as? MovieNameCell
+            return cell ?? UITableViewCell()
+           
+        default:
+            let cell = tableView.dequeueReusableCell(withIdentifier: SimilarMoviesCell.identifier, for: indexPath) as? SimilarMoviesCell
+            return cell ?? UITableViewCell()
+        }
+        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 110
+        switch indexPath.row{
+        case 0:
+            return 90
+        case 1:
+            return 110
+        default:
+            return 0
+        }
     }
-    
     
     
     

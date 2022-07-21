@@ -13,7 +13,9 @@ class MovieView: UIView {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.backgroundColor = .red
+        tableView.separatorStyle = .none
         tableView.register(SimilarMoviesCell.self, forCellReuseIdentifier: SimilarMoviesCell.identifier)
+        tableView.register(MovieNameCell.self, forCellReuseIdentifier: MovieNameCell.identifier)
         return tableView
     }()
     
