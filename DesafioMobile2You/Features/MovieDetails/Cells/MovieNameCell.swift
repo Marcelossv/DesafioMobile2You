@@ -14,7 +14,7 @@ class MovieNameCell: UITableViewCell {
     lazy var nameMovieLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.setupFont(name: FontName.openSansBold, size: 40, color: .black)
+        label.setupFont(name: FontName.openSansBold, size: 40, color: .white)
         label.text = "Spider - Man"
         return label
     }()
@@ -23,6 +23,7 @@ class MovieNameCell: UITableViewCell {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setImage(UIImage(systemName: "heart"), for: .normal)
+        button.tintColor = .white
         button.contentMode = .scaleToFill
         return button
     }()
@@ -30,7 +31,8 @@ class MovieNameCell: UITableViewCell {
     lazy var heartImageView: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
-        image.image = UIImage(systemName: "heart")
+        image.image = UIImage(systemName: "heart.fill")
+        image.tintColor = .white
         image.contentMode = .scaleToFill
         return image
     }()
@@ -38,7 +40,7 @@ class MovieNameCell: UITableViewCell {
     lazy var numberLikesLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.setupFont(name: FontName.openSansBold, size: 22, color: .black)
+        label.setupFont(name: FontName.openSansBold, size: 22, color: .white)
         label.text = "1.2m likes"
         return label
     }()
@@ -46,7 +48,8 @@ class MovieNameCell: UITableViewCell {
     lazy var popularityImageView: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
-        image.image = UIImage(systemName: "person")
+        image.image = UIImage(systemName: "person.fill")
+        image.tintColor = .white
         image.contentMode = .scaleToFill
         return image
     }()
@@ -54,7 +57,7 @@ class MovieNameCell: UITableViewCell {
     lazy var popularityLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.setupFont(name: FontName.openSansBold, size: 22, color: .black)
+        label.setupFont(name: FontName.openSansBold, size: 22, color: .white)
         label.text = "Populary"
         return label
     }()
@@ -67,7 +70,8 @@ class MovieNameCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.addElements()
         self.setupConstraints()
-        self.selectionStyle = .none
+        self.initialConfig()
+        
         
     }
     
@@ -76,6 +80,11 @@ class MovieNameCell: UITableViewCell {
     }
     
     //MARK: - Private Functions
+    
+    private func initialConfig(){
+        self.selectionStyle = .none
+        self.backgroundColor = .black
+    }
     
     private func addElements(){
         self.contentView.addSubview(self.nameMovieLabel)
@@ -93,18 +102,18 @@ class MovieNameCell: UITableViewCell {
             self.nameMovieLabel.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
             self.nameMovieLabel.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 5),
             
-            self.heartButton.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
-            self.heartButton.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -10),
+            self.heartButton.topAnchor.constraint(equalTo: self.nameMovieLabel.topAnchor),
+            self.heartButton.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -30),
             self.heartButton.heightAnchor.constraint(equalToConstant: 30),
             
             
-            self.heartImageView.topAnchor.constraint(equalTo: self.nameMovieLabel.bottomAnchor, constant: 10),
+            self.heartImageView.topAnchor.constraint(equalTo: self.nameMovieLabel.bottomAnchor, constant: 15),
             self.heartImageView.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 5),
             
             self.numberLikesLabel.centerYAnchor.constraint(equalTo: self.heartImageView.centerYAnchor),
             self.numberLikesLabel.leadingAnchor.constraint(equalTo: self.heartImageView.trailingAnchor, constant: 5),
             
-            self.popularityImageView.topAnchor.constraint(equalTo: self.nameMovieLabel.bottomAnchor, constant: 10),
+            self.popularityImageView.topAnchor.constraint(equalTo: self.heartImageView.topAnchor),
             self.popularityImageView.trailingAnchor.constraint(equalTo: self.numberLikesLabel.trailingAnchor, constant: 50),
             
             self.popularityLabel.centerYAnchor.constraint(equalTo: self.popularityImageView.centerYAnchor),

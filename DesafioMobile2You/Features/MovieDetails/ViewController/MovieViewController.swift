@@ -53,7 +53,7 @@ extension MovieViewController : UITableViewDelegate , UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.row{
         case 0:
-            return 90
+            return 95
         case 1:
             return 110
         default:

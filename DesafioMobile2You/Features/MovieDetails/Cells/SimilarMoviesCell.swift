@@ -22,7 +22,7 @@ class SimilarMoviesCell: UITableViewCell {
     lazy var nameMovieLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.setupFont(name: FontName.openSansBold, size: 22, color: .black)
+        label.setupFont(name: FontName.openSansBold, size: 22, color: .white)
         label.text = "Spider - Man"
         return label
     }()
@@ -30,7 +30,7 @@ class SimilarMoviesCell: UITableViewCell {
     lazy var genresMovieLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.setupFont(name: FontName.openSansRegular, size: 18, color: .black)
+        label.setupFont(name: FontName.openSansRegular, size: 18, color: .white)
         label.text = "1989 Aventura, Drama"
         return label
     }()
@@ -42,7 +42,7 @@ class SimilarMoviesCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.addElements()
         self.setupConstraints()
-        self.selectionStyle = .none
+        self.initialConfig()
         
     }
     
@@ -51,6 +51,11 @@ class SimilarMoviesCell: UITableViewCell {
     }
     
     //MARK: - Private Functions
+    
+    private func initialConfig(){
+        self.selectionStyle = .none
+        self.backgroundColor = .black
+    }
     
     private func addElements(){
         self.contentView.addSubview(self.movieImageView)
@@ -67,10 +72,10 @@ class SimilarMoviesCell: UITableViewCell {
             self.movieImageView.heightAnchor.constraint(equalToConstant: 100),
             self.movieImageView.widthAnchor.constraint(equalToConstant: 70),
             
-            self.nameMovieLabel.bottomAnchor.constraint(equalTo: self.movieImageView.centerYAnchor, constant: 5),
+            self.nameMovieLabel.bottomAnchor.constraint(equalTo: self.movieImageView.centerYAnchor),
             self.nameMovieLabel.leadingAnchor.constraint(equalTo: self.movieImageView.trailingAnchor, constant: 10),
             
-            self.genresMovieLabel.topAnchor.constraint(equalTo: self.movieImageView.centerYAnchor, constant: 5),
+            self.genresMovieLabel.topAnchor.constraint(equalTo: self.nameMovieLabel.bottomAnchor, constant: 5),
             self.genresMovieLabel.leadingAnchor.constraint(equalTo: self.movieImageView.trailingAnchor, constant: 10),
           
           

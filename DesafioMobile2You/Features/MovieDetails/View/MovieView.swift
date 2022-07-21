@@ -12,7 +12,7 @@ class MovieView: UIView {
     lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.backgroundColor = .red
+        tableView.backgroundColor = .black
         tableView.separatorStyle = .none
         tableView.register(SimilarMoviesCell.self, forCellReuseIdentifier: SimilarMoviesCell.identifier)
         tableView.register(MovieNameCell.self, forCellReuseIdentifier: MovieNameCell.identifier)
