@@ -10,6 +10,7 @@ import UIKit
 class MovieViewController: UIViewController {
     
     var movieView: MovieView?
+    var viewModel: MovieViewModel = MovieViewModel()
 
     
     override func loadView() {
@@ -21,7 +22,8 @@ class MovieViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.movieView?.configTableViewProtocols(delegate: self, datasource: self)
-
+        self.viewModel.delegate(delegate: self)
+        self.viewModel.getMovieDetailsRequest()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -86,4 +88,18 @@ extension MovieViewController : UITableViewDelegate , UITableViewDataSource, UIS
         guard let header = self.movieView?.tableView.tableHeaderView as? HideTableViewHeader else {return}
         header.scrollViewDidScroll(scrollView: scrollView)
     }
+}
+
+//MARK: - MovieViewModelDelegate
+
+extension MovieViewController: MovieViewModelDelegate {
+    func success() {
+        print(#function)
+    }
+    
+    func error() {
+        print(#function)
+    }
+    
+
 }

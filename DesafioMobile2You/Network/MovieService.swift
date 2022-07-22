@@ -39,6 +39,7 @@ class MovieService: MovieServiceProtocol{
                 
                 do {
                     let model:MovieDetails = try JSONDecoder().decode(MovieDetails.self, from: data)
+                    completion(model, nil )
                 } catch {
                     return completion(nil, Error.errorDescription(message: "error phars", error: error))
                 }
