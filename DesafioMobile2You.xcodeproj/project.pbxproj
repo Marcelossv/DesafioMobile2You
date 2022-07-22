@@ -19,6 +19,10 @@
 		313D9D42288A02420091D488 /* CustomFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313D9D41288A02420091D488 /* CustomFont.swift */; };
 		313D9D44288A088E0091D488 /* MovieNameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313D9D43288A088E0091D488 /* MovieNameCell.swift */; };
 		313D9D46288A09610091D488 /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313D9D45288A09610091D488 /* UIButton+Extension.swift */; };
+		313D9D4A288A2E7B0091D488 /* HideTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313D9D49288A2E7B0091D488 /* HideTableViewHeader.swift */; };
+		313D9D4D288B28460091D488 /* MovieService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313D9D4C288B28460091D488 /* MovieService.swift */; };
+		313D9D4F288B28E60091D488 /* GenericServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313D9D4E288B28E60091D488 /* GenericServices.swift */; };
+		313D9D52288B2C160091D488 /* MovieDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313D9D51288B2C160091D488 /* MovieDetails.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +44,10 @@
 		313D9D41288A02420091D488 /* CustomFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFont.swift; sourceTree = "<group>"; };
 		313D9D43288A088E0091D488 /* MovieNameCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieNameCell.swift; sourceTree = "<group>"; };
 		313D9D45288A09610091D488 /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
+		313D9D49288A2E7B0091D488 /* HideTableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HideTableViewHeader.swift; sourceTree = "<group>"; };
+		313D9D4C288B28460091D488 /* MovieService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieService.swift; sourceTree = "<group>"; };
+		313D9D4E288B28E60091D488 /* GenericServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericServices.swift; sourceTree = "<group>"; };
+		313D9D51288B2C160091D488 /* MovieDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetails.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +80,8 @@
 		313D9D142889D9AD0091D488 /* DesafioMobile2You */ = {
 			isa = PBXGroup;
 			children = (
+				313D9D50288B2C070091D488 /* Model */,
+				313D9D4B288B28120091D488 /* Network */,
 				313D9D372889FF410091D488 /* Utils */,
 				313D9D292889DFE80091D488 /* Features */,
 				313D9D152889D9AD0091D488 /* AppDelegate.swift */,
@@ -114,6 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				313D9D302889E1E30091D488 /* MovieViewController.swift */,
+				313D9D49288A2E7B0091D488 /* HideTableViewHeader.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -171,6 +182,23 @@
 				313D9D3D288A011F0091D488 /* OpenSans-SemiBold.ttf */,
 			);
 			path = OpenSans;
+			sourceTree = "<group>";
+		};
+		313D9D4B288B28120091D488 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				313D9D4C288B28460091D488 /* MovieService.swift */,
+				313D9D4E288B28E60091D488 /* GenericServices.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		313D9D50288B2C070091D488 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				313D9D51288B2C160091D488 /* MovieDetails.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -244,10 +272,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				313D9D332889E2140091D488 /* MovieView.swift in Sources */,
+				313D9D52288B2C160091D488 /* MovieDetails.swift in Sources */,
 				313D9D162889D9AD0091D488 /* AppDelegate.swift in Sources */,
+				313D9D4A288A2E7B0091D488 /* HideTableViewHeader.swift in Sources */,
 				313D9D44288A088E0091D488 /* MovieNameCell.swift in Sources */,
+				313D9D4F288B28E60091D488 /* GenericServices.swift in Sources */,
 				313D9D46288A09610091D488 /* UIButton+Extension.swift in Sources */,
 				313D9D362889EB7F0091D488 /* SimilarMoviesCell.swift in Sources */,
+				313D9D4D288B28460091D488 /* MovieService.swift in Sources */,
 				313D9D3A2889FF960091D488 /* UILabel+Extension.swift in Sources */,
 				313D9D182889D9AD0091D488 /* SceneDelegate.swift in Sources */,
 				313D9D42288A02420091D488 /* CustomFont.swift in Sources */,

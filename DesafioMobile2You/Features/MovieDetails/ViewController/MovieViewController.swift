@@ -8,41 +8,53 @@
 import UIKit
 
 class MovieViewController: UIViewController {
-
+    
     var movieView: MovieView?
+
     
     override func loadView() {
         self.movieView = MovieView()
         self.view = self.movieView
         
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.movieView?.configTableViewProtocols(delegate: self, datasource: self)
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = true
     }
-  
+    
+// MARK: - Private Functions
+    
+    private func configHeaderView() -> UIView{
+        self.movieView?.tableView.frame = self.view.bounds
+        let header = HideTableViewHeader(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.width))
+        header.imageView.image = UIImage(named: "Image")
+        return header
+    }
+    
 }
 
-//MARK: - UITableView Delegate , UITableView DataSource
+//MARK: - UITableView Delegate , UITableView DataSource, UIScrollViewDelagate
 
-extension MovieViewController : UITableViewDelegate , UITableViewDataSource {
+extension MovieViewController : UITableViewDelegate , UITableViewDataSource, UIScrollViewDelegate{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 2
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
+    {
         
         switch indexPath.row{
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: MovieNameCell.identifier, for: indexPath) as? MovieNameCell
             return cell ?? UITableViewCell()
-           
+            
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: SimilarMoviesCell.identifier, for: indexPath) as? SimilarMoviesCell
             return cell ?? UITableViewCell()
@@ -61,9 +73,17 @@ extension MovieViewController : UITableViewDelegate , UITableViewDataSource {
         }
     }
     
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 500
+        
+    }
     
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        return configHeaderView()
+    }
     
-    
-    
-    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        guard let header = self.movieView?.tableView.tableHeaderView as? HideTableViewHeader else {return}
+        header.scrollViewDidScroll(scrollView: scrollView)
+    }
 }

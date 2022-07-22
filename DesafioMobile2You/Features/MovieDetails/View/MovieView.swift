@@ -25,7 +25,7 @@ class MovieView: UIView {
         super.init(frame: frame)
         self.addElements()
         self.setupConstraints()
-        
+
     }
     
     required init?(coder: NSCoder) {
@@ -37,6 +37,8 @@ class MovieView: UIView {
     public func configTableViewProtocols(delegate:UITableViewDelegate, datasource:UITableViewDataSource){
         self.tableView.delegate = delegate
         self.tableView.dataSource = datasource
+        
+        
     }
     
     //MARK: - Private Functions
