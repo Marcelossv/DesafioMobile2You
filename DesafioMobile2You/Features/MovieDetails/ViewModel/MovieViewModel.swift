@@ -16,7 +16,7 @@ class MovieViewModel{
     
     private let service: MovieService = MovieService()
     private weak var delegate: MovieViewModelDelegate?
-    private var movieDetails: MovieDetails?
+    var movieDetails: MovieDetails?
     
     
     public func delegate (delegate:MovieViewModelDelegate?){

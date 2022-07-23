@@ -79,6 +79,14 @@ class MovieNameCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    //MARK: - Public Functions
+    
+    public func setupCell(movie:MovieDetails){
+        self.nameMovieLabel.text = movie.originalTitle
+        self.numberLikesLabel.text = "\( movie.voteCount ?? 0) Likes "
+        self.popularityLabel.text = "\( movie.popularity ?? 0.0) Views"
+    }
+    
     //MARK: - Private Functions
     
     private func initialConfig(){

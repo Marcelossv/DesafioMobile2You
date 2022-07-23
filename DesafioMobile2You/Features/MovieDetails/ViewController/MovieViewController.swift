@@ -55,10 +55,16 @@ extension MovieViewController : UITableViewDelegate , UITableViewDataSource, UIS
         switch indexPath.row{
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: MovieNameCell.identifier, for: indexPath) as? MovieNameCell
+            if let movieDetails = self.viewModel.movieDetails{
+                cell?.setupCell(movie: movieDetails)
+            }
             return cell ?? UITableViewCell()
             
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: SimilarMoviesCell.identifier, for: indexPath) as? SimilarMoviesCell
+            if let movieDetails = self.viewModel.movieDetails{
+                cell?.setupCellSimilarMovies(movie: movieDetails)
+            }
             return cell ?? UITableViewCell()
         }
         

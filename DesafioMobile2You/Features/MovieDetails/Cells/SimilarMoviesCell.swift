@@ -50,6 +50,17 @@ class SimilarMoviesCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    //MARK: - Public Functions
+    
+    public func setupCellSimilarMovies(movie:MovieDetails){
+//        self.movieImageView.image = String(movie.posterPath)
+        self.nameMovieLabel.text = movie.title
+//        self.genresMovieLabel.text = movie.[genres]
+        
+        
+    }
+    
+    
     //MARK: - Private Functions
     
     private func initialConfig(){
