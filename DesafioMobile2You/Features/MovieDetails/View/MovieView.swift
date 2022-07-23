@@ -16,6 +16,7 @@ class MovieView: UIView {
         tableView.separatorStyle = .none
         tableView.register(SimilarMoviesCell.self, forCellReuseIdentifier: SimilarMoviesCell.identifier)
         tableView.register(MovieNameCell.self, forCellReuseIdentifier: MovieNameCell.identifier)
+        tableView.register(ImageMovieCell.self, forCellReuseIdentifier: ImageMovieCell.identifier)
         return tableView
     }()
     

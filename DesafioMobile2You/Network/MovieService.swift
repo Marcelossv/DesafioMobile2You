@@ -29,7 +29,7 @@ class MovieService: MovieServiceProtocol{
             }
             
             let json = try? JSONSerialization.jsonObject(with: data)
-            print(json as Any)
+//            print(json as Any)
             
             guard let response = response as? HTTPURLResponse else {
                 return completion(nil, Error.errorDescription(message: "error response"))

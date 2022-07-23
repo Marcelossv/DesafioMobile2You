@@ -15,8 +15,10 @@ protocol MovieViewModelDelegate: AnyObject {
 class MovieViewModel{
     
     private let service: MovieService = MovieService()
+    private let network: SimilarMoviesService = SimilarMoviesService()
     private weak var delegate: MovieViewModelDelegate?
     var movieDetails: MovieDetails?
+    var similarMovies: SimilarMovies?
     
     
     public func delegate (delegate:MovieViewModelDelegate?){
@@ -27,6 +29,17 @@ class MovieViewModel{
         self.service.getMovieDetails { success, error in
             if let success = success {
                 self.movieDetails = success
+                self.delegate?.success()
+            } else {
+                self.delegate?.error()
+            }
+        }
+    }
+    
+    public func getSimilarMoviesRequest(){
+        self.network.getSimilarMovies { success, error in
+            if let success = success {
+                self.similarMovies = success
                 self.delegate?.success()
             } else {
                 self.delegate?.error()

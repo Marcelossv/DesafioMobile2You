@@ -11,7 +11,7 @@ class MovieViewController: UIViewController {
     
     var movieView: MovieView?
     var viewModel: MovieViewModel = MovieViewModel()
-
+    
     
     override func loadView() {
         self.movieView = MovieView()
@@ -24,29 +24,22 @@ class MovieViewController: UIViewController {
         self.movieView?.configTableViewProtocols(delegate: self, datasource: self)
         self.viewModel.delegate(delegate: self)
         self.viewModel.getMovieDetailsRequest()
+        self.viewModel.getSimilarMoviesRequest()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = true
     }
     
-// MARK: - Private Functions
-    
-    private func configHeaderView() -> UIView{
-        self.movieView?.tableView.frame = self.view.bounds
-        let header = HideTableViewHeader(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.width))
-        header.imageView.image = UIImage(named: "Image")
-        return header
-    }
     
 }
 
 //MARK: - UITableView Delegate , UITableView DataSource, UIScrollViewDelagate
 
-extension MovieViewController : UITableViewDelegate , UITableViewDataSource, UIScrollViewDelegate{
+extension MovieViewController : UITableViewDelegate , UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return 3
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
@@ -54,6 +47,13 @@ extension MovieViewController : UITableViewDelegate , UITableViewDataSource, UIS
         
         switch indexPath.row{
         case 0:
+            let cell = tableView.dequeueReusableCell(withIdentifier: ImageMovieCell.identifier, for: indexPath) as? ImageMovieCell
+            if let movieDetails = self.viewModel.movieDetails{
+                cell?.setupCell(movie: movieDetails)
+            }
+            return cell ?? UITableViewCell()
+        
+        case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: MovieNameCell.identifier, for: indexPath) as? MovieNameCell
             if let movieDetails = self.viewModel.movieDetails{
                 cell?.setupCell(movie: movieDetails)
@@ -73,28 +73,18 @@ extension MovieViewController : UITableViewDelegate , UITableViewDataSource, UIS
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.row{
         case 0:
-            return 95
+            return 500
         case 1:
-            return 110
+            return 95
         default:
-            return 0
+            return 110
         }
     }
     
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 500
-        
-    }
+
     
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return configHeaderView()
-    }
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        guard let header = self.movieView?.tableView.tableHeaderView as? HideTableViewHeader else {return}
-        header.scrollViewDidScroll(scrollView: scrollView)
-    }
 }
+
 
 //MARK: - MovieViewModelDelegate
 
@@ -107,5 +97,5 @@ extension MovieViewController: MovieViewModelDelegate {
         print(#function)
     }
     
-
+    
 }
