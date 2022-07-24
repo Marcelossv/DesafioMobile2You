@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AlamofireImage
 
 class SimilarMoviesCell: UITableViewCell {
     
@@ -52,16 +53,22 @@ class SimilarMoviesCell: UITableViewCell {
     
     //MARK: - Public Functions
     
-    public func setupCellSimilarMovies(movie:MovieDetails){
-//        self.movieImageView.image = String(movie.posterPath)
-        self.nameMovieLabel.text = movie.title
-//        self.genresMovieLabel.text = movie.[genres]
-        
-        
+    public func setupCellSimilarMovies(movie:SimilarMovies, genre: MovieDetails){
+        let url = URL(string: "https://image.tmdb.org/t/p/original\(movie.results[0].poster_path)") ?? URL(fileURLWithPath: "")
+        movieImageView.af.setImage(withURL: url)
+        self.nameMovieLabel.text = movie.results[0].title
+        self.genresMovieLabel.text = "\(getDate(movie: movie.results[0].release_date)) \(genre.genres?[0].name ?? "")"
     }
     
-    
     //MARK: - Private Functions
+    
+    private func getDate(movie: String) -> String{
+        let currentyDate = Date()
+        let formater = DateFormatter()
+        formater.dateFormat = "YYYY"
+        let date = formater.string(from: currentyDate)
+        return date
+    }
     
     private func initialConfig(){
         self.selectionStyle = .none

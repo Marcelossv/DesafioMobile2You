@@ -156,6 +156,7 @@ enum original_language: String, Codable {
     case en = "en"
     case ja = "ja"
     case sv = "sv"
+    case fr = "fr"
 }
 
 // MARK: - Helper functions for creating encoders and decoders
