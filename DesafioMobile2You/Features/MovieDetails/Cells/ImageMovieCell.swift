@@ -14,6 +14,7 @@ class ImageMovieCell: UITableViewCell {
     
     public let movieImageView: UIImageView = {
         let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.clipsToBounds = true
         imageView.contentMode = .scaleAspectFill
         imageView.image = UIImage(named: "Image")
@@ -38,7 +39,7 @@ class ImageMovieCell: UITableViewCell {
     //MARK: - Public Functions
     
     public func setupCell(movie:MovieDetails){
-        let url = URL(string: movie.posterPath ?? "") ?? URL(fileURLWithPath: "")
+        let url = URL(string: "https://image.tmdb.org/t/p/original\(movie.posterPath ?? "")") ?? URL(fileURLWithPath: "")
         movieImageView.af.setImage(withURL: url)
     
 }

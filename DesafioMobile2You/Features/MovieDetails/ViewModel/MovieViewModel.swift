@@ -20,6 +20,9 @@ class MovieViewModel{
     var movieDetails: MovieDetails?
     var similarMovies: SimilarMovies?
     
+    public var numberOfRows: Int {
+        similarMovies?.results.count ?? 0
+    }
     
     public func delegate (delegate:MovieViewModelDelegate?){
         self.delegate = delegate

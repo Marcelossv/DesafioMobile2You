@@ -13,7 +13,7 @@ protocol MovieServiceProtocol: GenericService {
 
 class MovieService: MovieServiceProtocol{
     func getMovieDetails(completion: @escaping completion<MovieDetails?>) {
-        let urlString: String = "https://api.themoviedb.org/3/movie/550?api_key=98faade711e40e4e0e8dab3f329fecef&language=en-US"
+        let urlString: String = "https://api.themoviedb.org/3/movie/640?api_key=98faade711e40e4e0e8dab3f329fecef&language=en-US"
     
         guard let url:URL = URL(string: urlString) else{
             return completion(nil, Error.errorDescription(message: "error Url"))
@@ -29,7 +29,6 @@ class MovieService: MovieServiceProtocol{
             }
             
             let json = try? JSONSerialization.jsonObject(with: data)
-//            print(json as Any)
             
             guard let response = response as? HTTPURLResponse else {
                 return completion(nil, Error.errorDescription(message: "error response"))

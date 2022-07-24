@@ -39,7 +39,7 @@ class MovieViewController: UIViewController {
 extension MovieViewController : UITableViewDelegate , UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return self.viewModel.numberOfRows
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
@@ -62,8 +62,8 @@ extension MovieViewController : UITableViewDelegate , UITableViewDataSource {
             
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: SimilarMoviesCell.identifier, for: indexPath) as? SimilarMoviesCell
-            if let similarMovies = self.viewModel.similarMovies, let movieDetails = self.viewModel.movieDetails {
-                cell?.setupCellSimilarMovies(movie: similarMovies, genre: movieDetails)
+            if let similarMovies = self.viewModel.similarMovies, let movieDetails = self.viewModel.movieDetails{
+                cell?.setupCellSimilarMovies(movie: similarMovies.results[indexPath.row], genre: movieDetails)
             }
             return cell ?? UITableViewCell()
         }
@@ -73,7 +73,7 @@ extension MovieViewController : UITableViewDelegate , UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.row{
         case 0:
-            return 500
+            return 400
         case 1:
             return 95
         default:
@@ -90,7 +90,10 @@ extension MovieViewController : UITableViewDelegate , UITableViewDataSource {
 
 extension MovieViewController: MovieViewModelDelegate {
     func success() {
-        print(#function)
+        DispatchQueue.main.async {
+            self.movieView?.tableView.reloadData()
+        }
+    
     }
     
     func error() {

@@ -53,11 +53,11 @@ class SimilarMoviesCell: UITableViewCell {
     
     //MARK: - Public Functions
     
-    public func setupCellSimilarMovies(movie:SimilarMovies, genre: MovieDetails){
-        let url = URL(string: "https://image.tmdb.org/t/p/original\(movie.results[0].poster_path)") ?? URL(fileURLWithPath: "")
+    public func setupCellSimilarMovies(movie:Result, genre: MovieDetails){
+        let url = URL(string: "https://image.tmdb.org/t/p/original\(movie.poster_path)") ?? URL(fileURLWithPath: "")
         movieImageView.af.setImage(withURL: url)
-        self.nameMovieLabel.text = movie.results[0].title
-        self.genresMovieLabel.text = "\(getDate(movie: movie.results[0].release_date)) \(genre.genres?[0].name ?? "")"
+        self.nameMovieLabel.text = movie.title
+        self.genresMovieLabel.text = "\(getDate(movie: movie.release_date)) \(genre.genres?[0].name ?? "")"
     }
     
     //MARK: - Private Functions
