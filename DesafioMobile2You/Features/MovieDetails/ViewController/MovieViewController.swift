@@ -25,6 +25,7 @@ class MovieViewController: UIViewController {
         self.viewModel.delegate(delegate: self)
         self.viewModel.getMovieDetailsRequest()
         self.viewModel.getSimilarMoviesRequest()
+        self.viewModel.getGenreRequest()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -34,7 +35,7 @@ class MovieViewController: UIViewController {
     
 }
 
-//MARK: - UITableView Delegate , UITableView DataSource, UIScrollViewDelagate
+//MARK: - UITableView Delegate , UITableView DataSource
 
 extension MovieViewController : UITableViewDelegate , UITableViewDataSource {
     
@@ -62,8 +63,8 @@ extension MovieViewController : UITableViewDelegate , UITableViewDataSource {
             
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: SimilarMoviesCell.identifier, for: indexPath) as? SimilarMoviesCell
-            if let similarMovies = self.viewModel.similarMovies, let movieDetails = self.viewModel.movieDetails{
-                cell?.setupCellSimilarMovies(movie: similarMovies.results[indexPath.row], genre: movieDetails)
+            if let similarMovies = self.viewModel.similarMovies, let genres = self.viewModel.genres{
+                cell?.setupCellSimilarMovies(movie: similarMovies.results[indexPath.row], genre: genres)
             }
             return cell ?? UITableViewCell()
         }
@@ -80,9 +81,7 @@ extension MovieViewController : UITableViewDelegate , UITableViewDataSource {
             return 110
         }
     }
-    
 
-    
 }
 
 

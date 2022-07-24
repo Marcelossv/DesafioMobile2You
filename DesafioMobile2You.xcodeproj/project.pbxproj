@@ -26,6 +26,7 @@
 		313D9D74288C7E330091D488 /* ImageMovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313D9D73288C7E320091D488 /* ImageMovieCell.swift */; };
 		313D9D76288C9C140091D488 /* SimilarMoviesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313D9D75288C9C130091D488 /* SimilarMoviesService.swift */; };
 		313D9D78288C9C4D0091D488 /* SimilarMovies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313D9D77288C9C4D0091D488 /* SimilarMovies.swift */; };
+		318C89B4288DC7BC00F3B9F7 /* GenreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318C89B3288DC7BB00F3B9F7 /* GenreService.swift */; };
 		4312118E6B26E0E52AB4FF24 /* Pods_DesafioMobile2You.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2332A2B18815ADEBF1A670F6 /* Pods_DesafioMobile2You.framework */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +57,7 @@
 		313D9D73288C7E320091D488 /* ImageMovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageMovieCell.swift; sourceTree = "<group>"; };
 		313D9D75288C9C130091D488 /* SimilarMoviesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimilarMoviesService.swift; sourceTree = "<group>"; };
 		313D9D77288C9C4D0091D488 /* SimilarMovies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimilarMovies.swift; sourceTree = "<group>"; };
+		318C89B3288DC7BB00F3B9F7 /* GenreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreService.swift; sourceTree = "<group>"; };
 		61AD216E247807594CB58D15 /* Pods-DesafioMobile2You.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DesafioMobile2You.debug.xcconfig"; path = "Target Support Files/Pods-DesafioMobile2You/Pods-DesafioMobile2You.debug.xcconfig"; sourceTree = "<group>"; };
 		91991C45E30FFDCE4C9FE2DC /* Pods-DesafioMobile2You.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DesafioMobile2You.release.xcconfig"; path = "Target Support Files/Pods-DesafioMobile2You/Pods-DesafioMobile2You.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -213,6 +215,7 @@
 				313D9D4C288B28460091D488 /* MovieService.swift */,
 				313D9D75288C9C130091D488 /* SimilarMoviesService.swift */,
 				313D9D4E288B28E60091D488 /* GenericServices.swift */,
+				318C89B3288DC7BB00F3B9F7 /* GenreService.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -363,6 +366,7 @@
 				313D9D182889D9AD0091D488 /* SceneDelegate.swift in Sources */,
 				313D9D42288A02420091D488 /* CustomFont.swift in Sources */,
 				313D9D2F2889E1B80091D488 /* MovieViewModel.swift in Sources */,
+				318C89B4288DC7BC00F3B9F7 /* GenreService.swift in Sources */,
 				313D9D312889E1E30091D488 /* MovieViewController.swift in Sources */,
 				313D9D74288C7E330091D488 /* ImageMovieCell.swift in Sources */,
 			);

@@ -1,23 +1,23 @@
 //
-//  MovieService.swift
+//  GenreService.swift
 //  DesafioMobile2You
 //
-//  Created by Marcelo Silva on 22/07/22.
+//  Created by Marcelo Silva on 24/07/22.
 //
 
 import Foundation
 
-protocol MovieServiceProtocol: GenericService {
-    func getMovieDetails(completion: @escaping completion<MovieDetails?>)
+protocol GenreServiceProtocol: GenericService {
+    func getGenres(completion: @escaping completion<Genre?>)
 }
 
-class MovieService: MovieServiceProtocol{
+class GenreService: GenreServiceProtocol{
     
-    static let shared = MovieService()
+    static let shared = GenreService()
     var genres = [Genre]()
     
-    func getMovieDetails(completion: @escaping completion<MovieDetails?>) {
-        let urlString: String = "https://api.themoviedb.org/3/movie/550?api_key=98faade711e40e4e0e8dab3f329fecef&language=en-US"
+    func getGenres(completion: @escaping completion<Genre?>) {
+        let urlString: String = "https://api.themoviedb.org/3/genre/movie/list?api_key=98faade711e40e4e0e8dab3f329fecef&language=en-US"
     
         guard let url:URL = URL(string: urlString) else{
             return completion(nil, Error.errorDescription(message: "error Url"))
@@ -41,8 +41,8 @@ class MovieService: MovieServiceProtocol{
             if response.statusCode == 200 {
                 
                 do {
-                    let model:MovieDetails = try JSONDecoder().decode(MovieDetails.self, from: data)
-                    self.genres = model.genres ?? [Genre]()
+                    let model:Genre = try JSONDecoder().decode(Genre.self, from: data)
+//                    self.genres = model
                     completion(model, nil )
                 } catch {
                     return completion(nil, Error.errorDescription(message: "error phars", error: error))
@@ -55,3 +55,4 @@ class MovieService: MovieServiceProtocol{
     }
     
 }
+

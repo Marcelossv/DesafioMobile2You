@@ -11,6 +11,7 @@ import AlamofireImage
 class SimilarMoviesCell: UITableViewCell {
     
     static let identifier: String = "SimilarMoviesCell"
+    var formatterDate:[Character] = []
     
     lazy var movieImageView: UIImageView = {
         let image = UIImageView()
@@ -45,6 +46,7 @@ class SimilarMoviesCell: UITableViewCell {
         self.setupConstraints()
         self.initialConfig()
         
+        
     }
     
     required init?(coder: NSCoder) {
@@ -53,21 +55,56 @@ class SimilarMoviesCell: UITableViewCell {
     
     //MARK: - Public Functions
     
-    public func setupCellSimilarMovies(movie:Result, genre: MovieDetails){
+    public func setupCellSimilarMovies(movie:Result, genre: Genre){
         let url = URL(string: "https://image.tmdb.org/t/p/original\(movie.poster_path)") ?? URL(fileURLWithPath: "")
         movieImageView.af.setImage(withURL: url)
         self.nameMovieLabel.text = movie.title
-        self.genresMovieLabel.text = "\(getDate(movie: movie.release_date)) \(genre.genres?[0].name ?? "")"
+        self.genresMovieLabel.text = "\(getDate(date: movie.release_date)) \(genre.name ?? "")"
     }
     
     //MARK: - Private Functions
     
-    private func getDate(movie: String) -> String{
-        let currentyDate = Date()
-        let formater = DateFormatter()
-        formater.dateFormat = "YYYY"
-        let date = formater.string(from: currentyDate)
-        return date
+//    private func getGenres(movie:Result, genre: MovieDetails) -> String{
+//        var genresID = [Int]()
+//        for i in 0..<min(movie.genre_ids.count-1, 3) {
+//            genresID.append(movie.genre_ids[i])
+//        }
+//        print(genresID)
+//
+//        var genres = [Genre]()
+//
+//        for _ in 0..<genresID.count - 1 {
+//            let validGenre = MovieService.shared.genres.first
+//            if let id = validGenre {
+//                genres.append(id)
+//            }
+//
+//        }
+        
+        
+//        genresID.forEach { id in
+//            let validGenre = MovieService.shared.genres.first { genre in                genre.id = id
+//            }
+//            if let validGenre = validGenre {
+//                genres.append(validGenre)
+//            }
+//        }
+        
+//        var element = 0
+//        var genresDescription = ""
+//        genres.forEach { genre in
+//            if element > 0 {
+//                genresDescription += ", "
+//            }
+//            genresDescription += genre.name ?? ""
+//            element += 1
+//        }
+//        return genresDescription
+//    }
+    
+    private func getDate(date: String) -> String{
+        let stringDate = date.prefix(4)
+        return String(stringDate)
     }
     
     private func initialConfig(){

@@ -16,9 +16,12 @@ class MovieViewModel{
     
     private let service: MovieService = MovieService()
     private let network: SimilarMoviesService = SimilarMoviesService()
+    private let genre: GenreService = GenreService()
     private weak var delegate: MovieViewModelDelegate?
     var movieDetails: MovieDetails?
     var similarMovies: SimilarMovies?
+    var genres: Genre?
+    
     
     public var numberOfRows: Int {
         similarMovies?.results.count ?? 0
@@ -43,6 +46,17 @@ class MovieViewModel{
         self.network.getSimilarMovies { success, error in
             if let success = success {
                 self.similarMovies = success
+                self.delegate?.success()
+            } else {
+                self.delegate?.error()
+            }
+        }
+    }
+    
+    public func getGenreRequest(){
+        self.genre.getGenres { success, error in
+            if let success = success {
+                self.genres = success
                 self.delegate?.success()
             } else {
                 self.delegate?.error()
